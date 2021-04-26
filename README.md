@@ -1,3 +1,5 @@
+# Binance API Webapp
+
 ## Notes
 
 Binance websocket stream
