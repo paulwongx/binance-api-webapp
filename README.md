@@ -24,4 +24,4 @@ wss://stream.binance.com:9443/ws/ethusdt@kline_5m
 [Tutorial Link](https://www.youtube.com/watch?v=rvhnz1yBHgQ)
 [Binance Websocket API Documentation](https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md)
 [Binance Docs](https://binance-docs.github.io/apidocs/spot/en/#compressed-aggregate-trades-list)
-[Python Binance Read The Docs](https://python-binance.readthedocs.io/en/latest/market_data.html#id6)
+[Python Binance Read The Docs](https://python-binance.readthedocs.io/en/latest/market_data.html#id6)  
