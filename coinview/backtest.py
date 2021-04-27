@@ -3,13 +3,20 @@ import backtrader as bt
 import pandas as pd
 
 class RSIStrategy(bt.Strategy):
-    def __init__(self)
+    def __init__(self):
+        self.rsi = bt.indicators.RSI(self.data, period=14)
+
+    def next(self):
+        if self.rsi < 40 and not self.position:
+            self.buy(size=1)
+        if self.rsi > 70 and self.position:
+            self.close()
 
 
 cerebro = bt.Cerebro()
 
 crypt_df = pd.read_csv(
-    "./data/daily.csv",
+    "./data/2021_15minutes.csv",
     header=None,
     names=[
         "timestamp",
@@ -35,10 +42,14 @@ crypt_df.set_index('timestamp', inplace=True)
 
 print(crypt_df.head())
 
-data = bt.feeds.PandasDirectData(dataname=crypt_df)
+fromdate = datetime.datetime.strptime('2021-01-01', '%Y-%m-%d')
+todate = datetime.datetime.strptime('2021-03-01', '%Y-%m-%d')
+
+data = bt.feeds.PandasDirectData(dataname=crypt_df, compression=15, timeframe=bt.TimeFrame.Minutes, fromdate=fromdate, todate=todate)
 
 cerebro.adddata(data)
 
+cerebro.addstrategy(RSIStrategy)
 cerebro.run()
 
 cerebro.plot()
