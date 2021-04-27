@@ -66,24 +66,6 @@
 			</form>
 		</div>
 
-		<div id="my_balances">
-			<h2>Balances</h2>
-
-			<table style="table-layout: fixed; width: 20rem">
-				<thead>
-					<tr style="font-weight: bold; background-color: lightgray">
-						<td>Ticker</td>
-						<td>Amount</td>
-					</tr>
-				</thead>
-				{% for balance in my_balances %}
-				<tr style="outline: solid lightgray 1px">
-					<td>{{balance['asset']}}</td>
-					<td>{{balance['free']}}</td>
-				</tr>
-				{% endfor %}
-			</table>
-		</div>
 		<h3>Settings</h3>
 		<div id="settings">
 			<label for="rsi_checkbox" hidden>RSI Checkbox</label>
@@ -109,6 +91,25 @@
 				name="rsi_overboug7t"
 				placeholder="70"
 			/>
+		</div>
+
+		<div id="my_balances">
+			<h2>Balances</h2>
+
+			<table style="table-layout: fixed; width: 20rem">
+				<thead>
+					<tr style="font-weight: bold; background-color: lightgray">
+						<td>Ticker</td>
+						<td>Amount</td>
+					</tr>
+				</thead>
+				{% for balance in my_balances %}
+				<tr style="outline: solid lightgray 1px">
+					<td>{{balance['asset']}}</td>
+					<td>{{balance['free']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
 		</div>
 	</body>
 	<script>
